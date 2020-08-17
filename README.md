@@ -18,5 +18,9 @@
  The API I am using is 
   * https://iexcloud.io/core-data/
 
-  
+## Timeline
+
+ * Set up enviorment and retreive data through api calls (8/17/2020)
+ * Render graph and plot data (8/18/2020)
+ * Set up play functionality to show change over time by year (8/19/2020)
   
