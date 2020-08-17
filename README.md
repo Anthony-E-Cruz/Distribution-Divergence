@@ -13,10 +13,15 @@
 
 ![Wireframe](https://i.imgur.com/2u8MIU3.png)
 
-## Architecture and Technology
+## Technology
 
- The API I am using is 
-  * https://iexcloud.io/core-data/
+ * Vanilla Javascript
+ * Css
+ * Html
+ * D3
+
+## API
+ * https://iexcloud.io/core-data/
 
 ## Timeline
 
