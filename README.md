@@ -11,7 +11,7 @@
  
 ## Wireframe
 
-![Wireframe](https://i.imgur.com/JPWybFa.png)
+![Wireframe](https://imgur.com/2u8MIU3)
 
 ## Architecture and Technology
 
