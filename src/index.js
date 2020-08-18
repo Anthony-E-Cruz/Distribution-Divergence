@@ -83,19 +83,14 @@ d3.csv("networth.csv", function (error, data) {
     .text("Trillions of Dollars")
 
   var legend = chart2.selectAll(".legend")
-    .data(["Top 1%", "Top 2%-10%", "Top 50%-90%", "Bottom 50%"])//hard coding the labels as the datset may have or may not have but legend should be complete.
+    .data(["Top 1%", "Top 2%-10%", "Top 50%-90%", "Bottom 50%"])
     .enter().append("g")
     .attr("class", "legend")
-    // .attr("transform", function (d, i) { 
-    //   console.log(i) 
-    //   return "translate("+10 * i +",25)"; })
-    
+
     .attr("transform", function (d, i) { 
       console.log(d) 
       return "translate(-700," + i * 25 + ")"; })
     
-
-  // draw legend colored rectangles
   legend.append("rect")
     .attr("x", width - 18)
     .attr("width", 18)
@@ -107,13 +102,10 @@ d3.csv("networth.csv", function (error, data) {
       if (d === "Bottom 50%") return "red"
     });
 
-  // draw legend text
   legend.append("text")
     .attr("x", width - 24)
     .attr("y", 9)
     .attr("dy", ".35em")
     .style("text-anchor", "end")
     .text(function (d) { return d; });
-
-
 });
