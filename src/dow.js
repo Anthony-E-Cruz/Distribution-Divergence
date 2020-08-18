@@ -1,5 +1,4 @@
 ///////////// Dow jones ////////////
-
 var margin = { top: 20, right: 20, bottom: 30, left: 50 },
   width = 960 - margin.left - margin.right,
   height = 500 - margin.top - margin.bottom;
@@ -12,19 +11,14 @@ var x = d3.scaleTime().range([0, width]);
 var y = d3.scaleLinear().range([height, 0]);
 
 // define the 1st line
-var valueline = d3.line()
+var valueline0 = d3.line()
   .x(function (d) { return x(d.date); })
   .y(function (d) { return y(d.close); });
-
-// define the 2nd line
-var valueline2 = d3.line()
-  .x(function (d) { return x(d.date); })
-  .y(function (d) { return y(d.open); });
 
 // append the svg obgect to the body of the page
 // appends a 'group' element to 'svg'
 // moves the 'group' element to the top left 
-var svg = d3.select("body").append("svg")
+var chart1 = d3.select("body").append("svg")
   .attr("width", width + margin.left + margin.right)
   .attr("height", height + margin.top + margin.bottom)
   .append("g")
@@ -45,29 +39,52 @@ d3.csv("DJI.csv", function (error, data) {
   // Scale the range of the data
   x.domain(d3.extent(data, function (d) { return d.date; }));
   y.domain([0, d3.max(data, function (d) {
-    return Math.max(d.close, d.open);
+    return Math.max(d.close);
   })]);
 
   // Add the valueline path.
-  svg.append("path")
+  chart1.append("path")
     .data([data])
     .attr("class", "line")
-    .attr("d", valueline);
-
-  // Add the valueline2 path.
-  // svg.append("path")
-  //   .data([data])
-  //   .attr("class", "line")
-  //   .style("stroke", "red")
-  //   .attr("d", valueline2);
+    .attr("d", valueline0);
 
   // Add the X Axis
-  svg.append("g")
+  chart1.append("g")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x));
 
   // Add the Y Axis
-  svg.append("g")
+  chart1.append("g")
     .call(d3.axisLeft(y));
+
+  chart1.append("text")
+    .attr("text-anchor", "end")
+    .attr("transform", "rotate(-90)")
+    .attr("y", -margin.left + 80)
+    .attr("x", -margin.top)
+    .text("Dollars")
+
+    //// ADDING LEGEND
+
+    var legend = chart1.selectAll(".legend")
+    .data(["DJIA Price"])//hard coding the labels as the datset may have or may not have but legend should be complete.
+    .enter().append("g")
+    .attr("class", "legend")
+    .attr("transform", function (d, i) { return "translate(-100," + i * 20 + ")"; });
+
+  // draw legend colored rectangles
+  legend.append("rect")
+    .attr("x", width - 18)
+    .attr("width", 18)
+    .attr("height", 7)
+    .style("fill", "#2c6b9b");
+
+  // draw legend text
+  legend.append("text")
+    .attr("x", width - 24)
+    .attr("y", 9)
+    .attr("dy", ".35em")
+    .style("text-anchor", "end")
+    .text(function (d) { return d; });
 
 });

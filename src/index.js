@@ -1,5 +1,4 @@
 ///////////// Networth ////////////
-
 var margin = { top: 20, right: 20, bottom: 30, left: 50 },
   width = 960 - margin.left - margin.right,
   height = 500 - margin.top - margin.bottom;
@@ -34,7 +33,7 @@ var valueline4 = d3.line()
 // append the svg obgect to the body of the page
 // appends a 'group' element to 'svg'
 // moves the 'group' element to the top left margin
-var svg = d3.select("body").append("svg")
+var chart2 = d3.select("body").append("svg")
   .attr("width", width + margin.left + margin.right)
   .attr("height", height + margin.top + margin.bottom)
   .append("g")
@@ -59,37 +58,53 @@ d3.csv("networth.csv", function (error, data) {
   })]);
 
   // Add the valueline path.
-  svg.append("path")
+  chart2.append("path")
     .data([data])
     .attr("class", "line")
+    .style("stroke", "purple")
     .attr("d", valueline);
 
   // Add the valueline2 path.
-  svg.append("path")
+  chart2.append("path")
     .data([data])
     .attr("class", "line")
     .style("stroke", "cyan")
     .attr("d", valueline2);
 
-  svg.append("path")
+  chart2.append("path")
     .data([data])
     .attr("class", "line")
     .style("stroke", "green")
     .attr("d", valueline3);
 
-  svg.append("path")
+  chart2.append("path")
     .data([data])
     .attr("class", "line")
     .style("stroke", "red")
     .attr("d", valueline4);
 
   // Add the X Axis
-  svg.append("g")
+  chart2.append("g")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x));
 
   // Add the Y Axis
-  svg.append("g")
+  chart2.append("g")
     .call(d3.axisLeft(y));
+
+  chart2.append("text")
+    .attr("text-anchor", "end")
+    .attr("transform", "rotate(-90)")
+    .attr("y", -margin.left + 80)
+    .attr("x", -margin.top)
+    .text("Trillions of Dollars")
+
+  // // add legend   
+  // var legend = chart2.append("g")
+  //   .attr("class", "legend")
+  //   .attr("x", width - 65)
+  //   .attr("y", 25)
+  //   .attr("height", 100)
+  //   .attr("width", 100);
 
 });
