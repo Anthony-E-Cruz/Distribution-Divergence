@@ -1,0 +1,15 @@
+.bar-chart {
+    background-color: #d9cec7;
+    }
+    
+.bar {
+     fill: #8c4811;
+     }
+
+.chart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+}
