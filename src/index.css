@@ -6,6 +6,12 @@
   fill: #4dd34d;
 }
 
+.line {
+          fill: none;
+          stroke: steelblue;
+          stroke-width: 2px;
+        }
+
 .chart {
   display: flex;
   flex-direction: column;
