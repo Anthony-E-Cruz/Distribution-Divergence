@@ -35,7 +35,7 @@ d3.csv("DJI.csv", function (error, data) {
 
   chart1.append("path")
     .data([data])
-    .attr("class", "line")
+    .attr("class", "line")    
     .attr("d", valueline0);
 
   chart1.append("g")
