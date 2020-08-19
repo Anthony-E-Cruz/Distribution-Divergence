@@ -45,13 +45,6 @@ d3.csv("DJI.csv", function (error, data) {
   chart1.append("g")
     .call(d3.axisLeft(y));
 
-  // var focus = svg.append("g")
-  //   .attr("class", "focus")
-  //   .style("display", "none");
-
-  // focus.append("circle")
-  //   .attr("r", 5);
-
   chart1.append("text")
     .attr("text-anchor", "end")
     .attr("transform", "rotate(-90)")
@@ -77,5 +70,4 @@ d3.csv("DJI.csv", function (error, data) {
     .attr("dy", ".35em")
     .style("text-anchor", "end")
     .text(function (d) { return d; });
-
 });
