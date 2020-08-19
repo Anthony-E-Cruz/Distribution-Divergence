@@ -1,7 +1,7 @@
 {
-  "name": "js_project_skeleton",
+  "name": "data-viz",
   "version": "1.0.0",
-  "description": "skeleton for new JS project",
+  "description": "data visualization",
   "main": "index.js",
   "browserslist": [
     "last 1 version",
