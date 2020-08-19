@@ -2,8 +2,6 @@ var buttons = document.querySelectorAll('button');
 var modal = document.querySelector('.modal');
 var backdrop = document.querySelector('.backdrop');
 
-var quote = 'dataViz is a';
-
 function closeModal() {
   modal.style.display = 'none';
   backdrop.style.display = 'none';
