@@ -2,21 +2,50 @@
 <html lang="en">
 <html>
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <link rel="stylesheet" href="/src/styles/index.css">
-    <title>Data Viz</title>
+    <link rel="stylesheet" href="/src/styles/modal.css">
     <script src="https://d3js.org/d3.v4.min.js"></script>
-    <div class="links">
-      <a href="https://github.com/Anthony-E-Cruz/Data-viz" target="_blank" >
-        <img class="github-logo" src="/src/images/github.png">
-      </a>
-      <a href="https://github.com/Anthony-E-Cruz/Data-viz" target="_blank" >
-        <img class="github-logo" src="/src/images/linkedin.png" >
-      </a>
-    </div>
   </head>
+
+  <body>
+    <div class="header">
+        <a href="https://github.com/Anthony-E-Cruz/Data-viz" target="_blank">
+          <img class="github-logo" src="/src/images/github.png">
+        </a>
+        <a href="https://github.com/Anthony-E-Cruz/Data-viz" target="_blank">
+          <img class="github-logo" src="/src/images/linkedin.png">
+        </a>
+      <h1>Data Viz</h1>
+      <div class="backdrop"></div>
+      <div class="modal">
+        <h1>Welcome To Data Viz</h1>
+        <div class="modal-input">
+          <!-- <P>This is a single page application developed to 
+            further my understanding of D3(Data-Driven Documents) 
+            and vanilla Javascript. 
+          </P> -->
+          <p>A single page application developed to 
+            give a visual representation of wealth distribution
+            in this country using Data-Driven Documents and
+            Vanilla Javascript.
+          </p>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-confirm">Continue</button>
+        </div>
+      </div>
+      <div class="demo-container">
+      <button type="button">Instructions</button>
+      </div>
+      <script src="/src/modal/modal.js"></script>
+    </div>
+  </body>
+
   <body class="chart">
-    <h1>Data Viz</h1>
     <div class="chart-container">
       <p class="chart-title">Dow Jones Industrial Average</p>
       <script src="src/scripts/dow.js"></script>
@@ -26,6 +55,7 @@
       <script src="/src/scripts/net_worth.js"></script>
     </div>
   </body>
+
 </html>
 
 
