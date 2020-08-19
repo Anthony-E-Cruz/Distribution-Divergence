@@ -2,9 +2,6 @@ var buttons = document.querySelectorAll('button');
 var modal = document.querySelector('.modal');
 var backdrop = document.querySelector('.backdrop');
 
-var outputParagraph = document.querySelector('#quote');
-var textEdit = document.querySelector('.modal textarea');
-
 var quote = 'dataViz is a';
 
 function closeModal() {
