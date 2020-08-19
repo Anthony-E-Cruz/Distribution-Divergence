@@ -88,7 +88,6 @@ d3.csv("networth.csv", function (error, data) {
     .attr("class", "legend")
 
     .attr("transform", function (d, i) {
-      console.log(d)
       return "translate(-700," + i * 25 + ")";
     })
 
