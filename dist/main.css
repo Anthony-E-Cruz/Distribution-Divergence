@@ -1,0 +1,121 @@
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+.chart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* margin-top: 80px; */
+}
+
+body {
+  background-color: #aaf4f1;
+}
+
+.chart-title {
+  font-size: 30px;
+}
+
+.github-logo{
+  height: 40px;
+  width: 40px;
+  color: black;
+  border-radius: 5px;
+  background-color: none;
+  margin: 10px;
+}
+
+.header {
+  display: flex;
+  align-items: inherit;
+  width: 100%;
+  justify-content: space-between;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.demo-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  font: inherit;
+  background: transparent;
+  border: 3px solid #000000;
+  padding: 0.5rem 1rem;
+  color: #000000;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+button:focus {
+  outline: 0;
+}
+
+button:hover,
+button:active {
+  border-color: steelblue;
+  color: steelblue;
+}
+
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 200;
+  top: 40%;
+  left: 35%;
+  width: 35%;
+  background: white;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.modal h1 {
+  color: steelblue;
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.modal-actions {
+  text-align: center;
+}
+
+button.btn-confirm {
+  border-color: steelblue;
+  color: steelblue;
+  border-radius: 10px;
+}
+
+button.btn-confirm:hover,
+button.btn-confirm:active {
+  color: white;
+  background: steelblue;
+}
+
+.backdrop {
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.open {
+  display: block;
+}
