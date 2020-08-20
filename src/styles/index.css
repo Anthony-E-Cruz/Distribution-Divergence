@@ -5,6 +5,12 @@
   stroke-width: 2px;
 }
 
+.line1 {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
 .chart {
   display: flex;
   flex-direction: column;
