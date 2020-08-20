@@ -12,6 +12,11 @@ buttons[1].addEventListener('click', function () {
   backdrop.style.display = 'block';
 });
 
+// backdrop.addEventListener('click', function () {
+//   modal.style.display = 'block';
+//   backdrop.style.display = 'block';
+// });
+
 buttons[0].addEventListener('click', function () {
   closeModal();
 });
