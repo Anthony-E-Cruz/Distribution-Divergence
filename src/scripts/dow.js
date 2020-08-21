@@ -116,8 +116,8 @@ var data = d3.csv("DJI.csv", function (error, data) {
     .attr("transform", "translate(10,3)");
 
   mouseG.append('svg:rect') // append a rect to catch mouse movements on canvas
-    .attr('width', width) // can't catch mouse events on a g element
-    .attr('height', height)
+    .attr('width', dowWidth) // can't catch mouse events on a g element
+    .attr('height', dowHeight)
     .attr('fill', 'none')
     .attr('pointer-events', 'all')
     .on('mouseout', function () { // on mouse out hide line, circles and text
@@ -140,7 +140,7 @@ var data = d3.csv("DJI.csv", function (error, data) {
       var mouse = d3.mouse(this);
       d3.select(".mouse-line")
         .attr("d", function () {
-          var d = "M" + mouse[0] + "," + height;
+          var d = "M" + mouse[0] + "," + dowHeight;
           d += " " + mouse[0] + "," + 0;
           return d;
         });
