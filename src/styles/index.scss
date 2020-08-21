@@ -18,6 +18,15 @@
   align-items: center;
 }
 
+#dow-chart-container, #chart-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  overflow: visible;
+}
+
 body {
   background-color: #aaf4f1;
 }

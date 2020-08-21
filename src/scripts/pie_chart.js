@@ -3,7 +3,7 @@ pieHeight = 450
 pieMargin = 40
 
 // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
-var radius = Math.min(pieWidth, height) / 2 - pieMargin
+var radius = Math.min(pieWidth, pieHeight) / 2 - pieMargin
 
 // append the svg object to the div called 'my_dataviz'
 var pieChart = d3.select("#my_dataviz")
@@ -11,7 +11,7 @@ var pieChart = d3.select("#my_dataviz")
   .attr("width", pieWidth)
   .attr("height", pieHeight)
   .append("g")
-  .attr("transform", "translate(" + pieWidth / 2 + "," + height / 2 + ")");
+  .attr("transform", "translate(" + pieWidth / 2 + "," + pieHeight / 2 + ")");
 
 var nwData = { "Top 1%": 32.55, "Top 2%-10%": 39.16, "Top 50%-90%": 31.09, "Bottom 50%": 1.5 }
 
