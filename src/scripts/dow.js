@@ -53,8 +53,8 @@ var data = d3.csv("DJI.csv", function (error, data) {
   chart1.append("text")
     .attr("text-anchor", "end")
     .attr("transform", "rotate(-90)")
-    .attr("y", -margin.left + 80)
-    .attr("x", -margin.top)
+    .attr("y", -dowMargin.left + 80)
+    .attr("x", -dowMargin.top)
     .text("Dollars")
 
   var legend = chart1.selectAll(".legend")
@@ -64,13 +64,13 @@ var data = d3.csv("DJI.csv", function (error, data) {
     .attr("transform", function (d, i) { return "translate(-100," + i * 20 + ")"; });
 
   legend.append("rect")
-    .attr("x", width - 18)
+    .attr("x", dowWidth - 18)
     .attr("width", 18)
     .attr("height", 7)
     .style("fill", "#2c6b9b");
 
   legend.append("text")
-    .attr("x", width - 24)
+    .attr("x", dowWidth - 24)
     .attr("y", 9)
     .attr("dy", ".35em")
     .style("text-anchor", "end")
