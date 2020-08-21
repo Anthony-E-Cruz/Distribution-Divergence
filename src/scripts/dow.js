@@ -104,9 +104,9 @@ var data = d3.csv("DJI.csv", function (error, data) {
   mousePerLine.append("circle")
     .attr("r", 7)
     .style("stroke", function (d) {
-      // return "red"
+      return "red"
       // console.log(color(d.name))
-      return color(d.name);
+      // return color(d.name);
     })
     .style("fill", "none")
     .style("stroke-width", "1px")
