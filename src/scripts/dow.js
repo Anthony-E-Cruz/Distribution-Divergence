@@ -1,23 +1,23 @@
 
-var margin = { top: 20, right: 20, bottom: 30, left: 50 },
-  width = 960 - margin.left - margin.right,
-  height = 500 - margin.top - margin.bottom;
+var dowMargin = { top: 20, right: 20, bottom: 30, left: 50 },
+  dowWidth = 960 - dowMargin.left - dowMargin.right,
+  dowHeight = 500 - dowMargin.top - dowMargin.bottom;
 
 var parseTime = d3.timeParse("%d-%b-%y");
 
-var x = d3.scaleTime().range([0, width]);
-var y = d3.scaleLinear().range([height, 0]);
+var x = d3.scaleTime().range([0, dowWidth]);
+var y = d3.scaleLinear().range([dowHeight, 0]);
 
 var valueline0 = d3.line()
   .x(function (d) { return x(d.date); })
   .y(function (d) { return y(d.close); });
 
 var chart1 = d3.select("body").append("svg")
-  .attr("width", width + margin.left + margin.right)
-  .attr("height", height + margin.top + margin.bottom)
+  .attr("width", dowWidth + dowMargin.left + dowMargin.right)
+  .attr("height", dowHeight + dowMargin.top + dowMargin.bottom)
   .append("g")
   .attr("transform",
-    "translate(" + margin.left + "," + margin.top + ")");
+    "translate(" + dowMargin.left + "," + dowMargin.top + ")");
   
 var tooltip = d3.select('body').append('div')
   .style('position', 'absolute')
@@ -82,109 +82,104 @@ var data = d3.csv("DJI.csv", function (error, data) {
 
   
 
-  ///////// MOUSEOVER ////////////
+  /////// MOUSEOVER ////////////
 
-  // var mouseG = chart1.append("g")
-  //   .attr("class", "mouse-over-effects");
+  var mouseG = chart1.append("g")
+    .attr("class", "mouse-over-effects");
 
-  // mouseG.append("path") // this is the black vertical line to follow mouse
-  //   .attr("class", "mouse-line")
-  //   .style("stroke", "black")
-  //   .style("stroke-width", "1px")
-  //   .style("opacity", "0");
+  mouseG.append("path") // this is the black vertical line to follow mouse
+    .attr("class", "mouse-line")
+    .style("stroke", "black")
+    .style("stroke-width", "1px")
+    .style("opacity", "0");
 
-  // var lines = document.getElementsByClassName('line1');
-  // // console.log(d)
-  // var mousePerLine = mouseG.selectAll('.mouse-per-line')
-  //   .data(data)
-  //   .enter()
-  //   .append("g")
-  //   .attr("class", "mouse-per-line");
+  var lines = document.getElementsByClassName('line1');
+  console.log(lines)
+  var mousePerLine = mouseG.selectAll('.mouse-per-line')
+    .data(data)
+    .enter()
+    .append("g")
+    .attr("class", "mouse-per-line");
 
-  // mousePerLine.append("circle")
-  //   .attr("r", 7)
-  //   .style("stroke", function (d) {
-  //     return "red"
-  //     return color(d.name);
-  //   })
-  //   .style("fill", "none")
-  //   .style("stroke-width", "1px")
-  //   .style("opacity", "0");
+  mousePerLine.append("circle")
+    .attr("r", 7)
+    .style("stroke", function (d) {
+      // return "red"
+      // console.log(color(d.name))
+      return color(d.name);
+    })
+    .style("fill", "none")
+    .style("stroke-width", "1px")
+    .style("opacity", "0");
 
-  // mousePerLine.append("text")
-  //   .attr("transform", "translate(10,3)");
+  mousePerLine.append("text")
+    .attr("transform", "translate(10,3)");
 
-  // mouseG.append('svg:rect') // append a rect to catch mouse movements on canvas
-  //   .attr('width', width) // can't catch mouse events on a g element
-  //   .attr('height', height)
-  //   .attr('fill', 'none')
-  //   .attr('pointer-events', 'all')
-  //   .on('mouseout', function () { // on mouse out hide line, circles and text
-  //     d3.select(".mouse-line")
-  //       .style("opacity", "0");
-  //     d3.selectAll(".mouse-per-line circle")
-  //       .style("opacity", "0");
-  //     d3.selectAll(".mouse-per-line text")
-  //       .style("opacity", "0");
-  //   })
-  //   .on('mouseover', function () { // on mouse in show line, circles and text
-  //     d3.select(".mouse-line")
-  //       .style("opacity", "1");
-  //     d3.selectAll(".mouse-per-line circle")
-  //       .style("opacity", "1");
-  //     d3.selectAll(".mouse-per-line text")
-  //       .style("opacity", "1");
-  //   })
-  //   .on('mousemove', function () { // mouse moving over canvas
-  //     var mouse = d3.mouse(this);
-  //     d3.select(".mouse-line")
-  //       .attr("d", function () {
-  //         var d = "M" + mouse[0] + "," + height;
-  //         d += " " + mouse[0] + "," + 0;
-  //         return d;
-  //       });
+  mouseG.append('svg:rect') // append a rect to catch mouse movements on canvas
+    .attr('width', width) // can't catch mouse events on a g element
+    .attr('height', height)
+    .attr('fill', 'none')
+    .attr('pointer-events', 'all')
+    .on('mouseout', function () { // on mouse out hide line, circles and text
+      d3.select(".mouse-line")
+        .style("opacity", "0");
+      d3.selectAll(".mouse-per-line circle")
+        .style("opacity", "0");
+      d3.selectAll(".mouse-per-line text")
+        .style("opacity", "0");
+    })
+    .on('mouseover', function () { // on mouse in show line, circles and text
+      d3.select(".mouse-line")
+        .style("opacity", "1");
+      d3.selectAll(".mouse-per-line circle")
+        .style("opacity", "1");
+      d3.selectAll(".mouse-per-line text")
+        .style("opacity", "1");
+    })
+    .on('mousemove', function () { // mouse moving over canvas
+      var mouse = d3.mouse(this);
+      d3.select(".mouse-line")
+        .attr("d", function () {
+          var d = "M" + mouse[0] + "," + height;
+          d += " " + mouse[0] + "," + 0;
+          return d;
+        });
 
-  //     d3.selectAll(".mouse-per-line")
-  //       .attr("transform", function (d, i) {
-  //         // console.log(width / mouse[0])
-  //         // console.log(x.invert(mouse[0]))
-  //         // console.log(d)
-  //         var xDate = x.invert(mouse[0]),
-  //           bisect = d3.bisector(function (d) { 
-  //             return d.date; }).right;
-  //             // console.log(xDate)
-  //         idx = bisect(d.date, xDate);
+      d3.selectAll(".mouse-per-line")
+        .attr("transform", function (d, i) {
+          // console.log(width / mouse[0])
+          // console.log(x.invert(mouse[0]))
+          // console.log(d)
+          var xDate = x.invert(mouse[0]),
+            bisect = d3.bisector(function (d) { 
+              return d.date; }).right;
+              // console.log(xDate)
+          idx = bisect(d.date, xDate);
           
-  //         // console.log(lines[i])
+          // console.log(lines[i])
 
-  //         // if (lines[i]) {
-  //         //   var lineI = lines[i]
-  //         // } else {
-  //         //   lineI = 0
-  //         // }
+          var beginning = 0,
+            end = lines[i].getTotalLength(),
+            target = null;
 
-  //         var beginning = 0,
-  //           end = lines[i].getTotalLength(),
-  //           target = null;
+          while (true) {
+            target = Math.floor((beginning + end) / 2);
+            // console.log(lines[i])
+            pos = lines[i].getPointAtLength(target);
+            if ((target === end || target === beginning) && pos.x !== mouse[0]) {
+              break;
+            }
+            if (pos.x > mouse[0]) end = target;
+            else if (pos.x < mouse[0]) beginning = target;
+            else break; //position found
+          }
+          // console.log(y.invert(pos.y))
+          d3.select(this).select('text')
+            .text(y.invert(pos.y).toFixed(2));
 
-  //         while (true) {
-  //           target = Math.floor((beginning + end) / 2);
-  //           console.log(lines[i])
-  //           pos = lines[i].getPointAtLength(target);
-  //           if ((target === end || target === beginning) && pos.x !== mouse[0]) {
-  //             break;
-  //           }
-  //           if (pos.x > mouse[0]) end = target;
-  //           else if (pos.x < mouse[0]) beginning = target;
-  //           else break; //position found
-  //         }
-  //         console.log(y.invert(pos.y))
-  //         d3.select(this).select('text')
-  //           .text(y.invert(pos.y).toFixed(2));
-
-  //         return "translate(" + mouse[0] + "," + pos.y + ")";
-  //       });
-  //   });
+          return "translate(" + mouse[0] + "," + pos.y + ")";
+        });
+    });
 
 
   //////// SIMPLE TOOLTIP ////////

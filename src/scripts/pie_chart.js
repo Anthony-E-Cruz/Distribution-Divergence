@@ -13,11 +13,10 @@ var pieChart = d3.select("#my_dataviz")
   .append("g")
   .attr("transform", "translate(" + pieWidth / 2 + "," + height / 2 + ")");
 
-// Create dummy data
-var data = { "Top 1%": 32.55, "Top 2%-10%": 39.16, "Top 50%-90%": 31.09, "Bottom 50%": 1.5 }
+var nwData = { "Top 1%": 32.55, "Top 2%-10%": 39.16, "Top 50%-90%": 31.09, "Bottom 50%": 1.5 }
 
 var color = d3.scaleOrdinal()
-  .domain(data)
+  .domain(nwData)
   .range(d3.schemeSet2);
 
   console.log(color)
@@ -25,7 +24,7 @@ var color = d3.scaleOrdinal()
 // Compute the position of each group on the pie:
 var pie = d3.pie()
   .value(function (d) { return d.value; })
-var parsedData = pie(d3.entries(data))
+var parsedData = pie(d3.entries(nwData))
 // Now I know that group A goes from 0 degrees to x degrees and so on.
 
 var pieArc = d3.arc()
