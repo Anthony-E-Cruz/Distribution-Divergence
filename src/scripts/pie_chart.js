@@ -35,6 +35,7 @@ pieChart.append('g')
   .enter()
   .append('path')
   .attr('d', pieArc)
+  .attr("class", "slice") 
   .attr('fill', function (d) { 
     if (d.data.key === "Top 1%") return "purple"
     if (d.data.key === "Top 2%-10%") return "cyan"
@@ -53,3 +54,13 @@ pieChart.append('g')
   .attr("transform", function (d) { return "translate(" + pieArc.centroid(d) + ")"; })
   .style("text-anchor", "middle")
   .style("font-size", 17)
+
+pieChart.on("mouseover", function () {
+  d3.select(this)
+    .select(".slice")
+    .style("opacity", ".5");
+}).on("mouseout", function () {
+  d3.select(this)
+    .select(".slice")
+    .style("opacity", "1");
+});

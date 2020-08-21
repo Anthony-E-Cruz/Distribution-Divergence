@@ -37,6 +37,11 @@ var data = d3.csv("DJI.csv", function (error, data) {
     .attr("class", "line1")    
     .attr("d", valueline0);
 
+  // d3.select('.line1')
+  //   .transition()
+  //   .duration(200)
+    // .attr('stroke-width', '3px')
+
   chart1.append("g")
     .attr("transform", "translate(0," + dowHeight + ")")
     .call(d3.axisBottom(x));
