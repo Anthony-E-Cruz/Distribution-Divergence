@@ -18,12 +18,11 @@
   align-items: center;
 }
 
-#dow-chart-container, #chart-container{
+#dow-chart-container, #chart-container, #my_dataviz{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 400px;
   overflow: visible;
 }
 

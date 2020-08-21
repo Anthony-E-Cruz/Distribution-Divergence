@@ -1,4 +1,3 @@
-
 var dowMargin = { top: 20, right: 20, bottom: 30, left: 50 },
   dowWidth = 960 - dowMargin.left - dowMargin.right,
   dowHeight = 500 - dowMargin.top - dowMargin.bottom;
@@ -18,11 +17,6 @@ var chart1 = d3.select("#dow-chart-container").append("svg")
   .append("g")
   .attr("transform",
     "translate(" + dowMargin.left + "," + dowMargin.top + ")");
-  
-var tooltip = d3.select('body').append('div')
-  .style('position', 'absolute')
-  .style('background', 'gray')
-  .style('opacity', '0')
 
 var data = d3.csv("DJI.csv", function (error, data) {
   if (error) throw error;
@@ -80,27 +74,28 @@ var data = d3.csv("DJI.csv", function (error, data) {
     .transition()
       .style("stroke", "red")
 
+  ////// MOUSEOVER //////
+  
   var mouseG = chart1.append("g")
-    .attr("class", "mouse-over-effects");
+    // .attr("class", "mouse-over-effects");
 
   mouseG.append("path")
-    .attr("class", "mouse-line")
-    .style("stroke", "black")
-    .style("stroke-width", "1px")
-    .style("opacity", "0");
+    .attr("class", "selector")
+    .style("stroke", "gray")
+    .style("stroke-width", "2px")
 
   var lines = document.getElementsByClassName('line1');
   console.log(lines)
-  var mousePerLine = mouseG.selectAll('.mouse-per-line')
+  var mousePerLine = mouseG.selectAll('.mouse-lines')
     .data(data)
     .enter()
     .append("g")
-    .attr("class", "mouse-per-line");
+    .attr("class", "mouse-lines");
 
   mousePerLine.append("circle")
-    .attr("r", 5)
+    .attr("r", 6)
     .style("stroke", "red")
-    .style("fill", "red")
+    .style("fill", "none")
     .style("stroke-width", "1px")
     .style("opacity", "0");
 
@@ -113,31 +108,31 @@ var data = d3.csv("DJI.csv", function (error, data) {
     .attr('fill', 'none')
     .attr('pointer-events', 'all')
     .on('mouseout', function () { 
-      d3.select(".mouse-line")
+      d3.select(".selector")
         .style("opacity", "0");
-      d3.selectAll(".mouse-per-line circle")
+      d3.selectAll(".mouse-lines circle")
         .style("opacity", "0");
-      d3.selectAll(".mouse-per-line text")
+      d3.selectAll(".mouse-lines text")
         .style("opacity", "0");
     })
     .on('mouseover', function () { 
-      d3.select(".mouse-line")
+      d3.select(".selector")
         .style("opacity", "1");
-      d3.selectAll(".mouse-per-line circle")
+      d3.selectAll(".mouse-lines circle")
         .style("opacity", "1");
-      d3.selectAll(".mouse-per-line text")
+      d3.selectAll(".mouse-lines text")
         .style("opacity", "1");
     })
     .on('mousemove', function () { 
       var mouse = d3.mouse(this);
-      d3.select(".mouse-line")
+      d3.select(".selector")
         .attr("d", function () {
           var d = "M" + mouse[0] + "," + dowHeight;
           d += " " + mouse[0] + "," + 0;
           return d;
         });
 
-      d3.selectAll(".mouse-per-line")
+      d3.selectAll(".mouse-lines")
         .attr("transform", function (d, i) {
           var xDate = x.invert(mouse[0]),
             bisect = d3.bisector(function (d) { 
@@ -168,4 +163,35 @@ var data = d3.csv("DJI.csv", function (error, data) {
           return "translate(" + mouse[0] + "," + pos.y + ")";
         });
     });
+
+    ///// Transition //////
+
+  var t = d3.transition()
+    .duration(7500)
+    .ease(d3.easeLinear);
+
+  // d3.selectAll(".line1")
+  //   .transition(t)
+  //     .style("stroke", "red")
+  //   .transition(t)
+  //     .style("stroke", "blue")
+  //   .transition(t)
+  //     .style("stroke", "yellow")
+  //   .transition(t)
+  //     .style("stroke", "steelblue")
+
+  // d3.selectAll(".line1")
+  //   .transition()
+  //   .style("stroke", "green")
+  //   .on("start", function repeat() {
+  //     d3.active(this)
+  //       .style("stroke", "red")
+  //       .transition()
+  //       .style("stroke", "green")
+  //       .transition()
+  //       .style("stroke", "blue")
+  //       .transition()
+  //       .on("start", repeat);
+  //   });
+
 });

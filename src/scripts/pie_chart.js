@@ -21,17 +21,14 @@ var color = d3.scaleOrdinal()
 
   console.log(color)
 
-// Compute the position of each group on the pie:
 var pie = d3.pie()
   .value(function (d) { return d.value; })
 var parsedData = pie(d3.entries(nwData))
-// Now I know that group A goes from 0 degrees to x degrees and so on.
 
 var pieArc = d3.arc()
   .innerRadius(0)
   .outerRadius(radius)
 
-// Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
 pieChart.append('g')
   .selectAll('mySlices')
   .data(parsedData)
@@ -47,7 +44,6 @@ pieChart.append('g')
   .style("stroke-width", "2px")
   .style("opacity", .7)
 
-// Now add the annotation. Use the centroid method to get the best coordinates
 pieChart.append('g')
   .selectAll('mySlices')
   .data(parsedData)
