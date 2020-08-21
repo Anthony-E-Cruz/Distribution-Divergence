@@ -44,7 +44,7 @@ var data = d3.csv("DJI.csv", function (error, data) {
     .attr("d", valueline0);
 
   chart1.append("g")
-    .attr("transform", "translate(0," + height + ")")
+    .attr("transform", "translate(0," + dowHeight + ")")
     .call(d3.axisBottom(x));
 
   chart1.append("g")
