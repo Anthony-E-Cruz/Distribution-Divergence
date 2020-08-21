@@ -1,2 +1,2 @@
-import './styles/index.css';
-import './styles/modal.css';
+import './styles/index.scss';
+import './styles/modal.scss';
