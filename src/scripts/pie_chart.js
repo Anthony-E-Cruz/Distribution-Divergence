@@ -55,12 +55,12 @@ pieChart.append('g')
   .style("text-anchor", "middle")
   .style("font-size", 17)
 
-pieChart.on("mouseover", function () {
-  d3.select(this)
-    .select(".slice")
-    .style("opacity", ".5");
-}).on("mouseout", function () {
-  d3.select(this)
-    .select(".slice")
-    .style("opacity", "1");
-});
+// pieChart.on("mouseover", function () {
+//   d3.select(this)
+//     .select(".slice")
+//     .style("opacity", ".5");
+// }).on("mouseout", function () {
+//   d3.select(this)
+//     .select(".slice")
+//     .style("opacity", "1");
+// });

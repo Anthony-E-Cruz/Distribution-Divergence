@@ -142,11 +142,8 @@ var data = d3.csv("DJI.csv", function (error, data) {
           var xDate = x.invert(mouse[0]),
             bisect = d3.bisector(function (d) { 
               return d.date; }).right;
-              // console.log(xDate)
           idx = bisect(d.date, xDate);
           
-          // console.log(lines[i])
-
           var beginning = 0,
             end = lines[i].getTotalLength(),
             target = null;
