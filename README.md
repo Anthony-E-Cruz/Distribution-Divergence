@@ -15,5 +15,5 @@
 
  * Set up enviorment, retreive and properly format data. (8/17/2020)
  * Render graphs and plot data (8/18/2020)
- * Set up tooltip to track mousover and display value (8/19/2020)
+ * Set up tooltip to track mousover and display value (8/19/2020) 
   
