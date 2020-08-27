@@ -13,7 +13,7 @@ var pieChart = d3.select("#my_dataviz")
   .append("g")
   .attr("transform", "translate(" + pieWidth / 2 + "," + pieHeight / 2 + ")");
 
-var nwData = { "Top 1%": 32.55, "Top 2%-10%": 39.16, "Top 50%-90%": 31.09, "Bottom 50%": 1.5 }
+var nwData = { "Top 1%": 32.55, "90-99%": 39.16, "50-90%": 31.09, "Bottom 50%": 1.5 }
 
 var color = d3.scaleOrdinal()
   .domain(nwData)
@@ -38,8 +38,8 @@ pieChart.append('g')
   .attr("class", "slice") 
   .attr('fill', function (d) { 
     if (d.data.key === "Top 1%") return "purple"
-    if (d.data.key === "Top 2%-10%") return "cyan"
-    if (d.data.key === "Top 50%-90%") return "green"
+    if (d.data.key === "90-99%") return "cyan"
+    if (d.data.key === "50-90%") return "green"
     if (d.data.key === "Bottom 50%") return "red"})
   .attr("stroke", "black")
   .style("stroke-width", "2px")

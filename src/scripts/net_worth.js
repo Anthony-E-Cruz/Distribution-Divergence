@@ -81,9 +81,9 @@ d3.csv("networth.csv", function (error, data) {
     .attr("y", -margin.left + 80)
     .attr("x", -margin.top)
     .text("Trillions of Dollars")
-
+  
   var legend = chart2.selectAll(".legend")
-    .data(["Top 1%", "Top 2%-10%", "Top 50%-90%", "Bottom 50%"])
+    .data(["Top 1%", "90-99%", "50-90%", "Bottom 50%"])
     .enter().append("g")
     .attr("class", "legend")
 
@@ -97,8 +97,8 @@ d3.csv("networth.csv", function (error, data) {
     .attr("height", 10)
     .style("fill", function (d) {
       if (d === "Top 1%") return "purple"
-      if (d === "Top 2%-10%") return "cyan"
-      if (d === "Top 50%-90%") return "green"
+      if (d === "90-99%") return "cyan"
+      if (d === "50-90%") return "green"
       if (d === "Bottom 50%") return "red"
     });
 

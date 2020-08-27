@@ -5,7 +5,7 @@ body {
 a {
   background: transparent;
   border: 3px solid transparent;
-  padding: 2px;
+  padding: 3px;
   color: #000000;
   cursor: pointer;
   border-radius: 10px;
@@ -15,7 +15,7 @@ a {
 a:hover {
   background: transparent;
   border: 3px solid steelblue;
-  padding: 2px;
+  padding: 3px;
   color: #000000;
   cursor: pointer;
   border-radius: 10px;
@@ -49,9 +49,11 @@ a:hover {
   overflow: visible;
 }
 
+#dow-chart-container {
+}
 
 .charts {
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 .chart-title {
@@ -68,6 +70,7 @@ a:hover {
 }
 
 .header {
+  background-color: #aaf4f1;
   display: flex;
   align-items: inherit;
   width: 100%;
