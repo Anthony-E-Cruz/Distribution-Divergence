@@ -10,6 +10,8 @@ function closeModal() {
 buttons[1].addEventListener('click', function () {
   modal.style.display = 'block';
   backdrop.style.display = 'block';
+  document.body.style.position = 'fixed';
+  document.body.style.margin = '30px'
 });
 
 // backdrop.addEventListener('click', function () {
