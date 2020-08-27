@@ -145,12 +145,11 @@ var data = d3.csv("DJI.csv", function (error, data) {
           idx = bisect(d.date, xDate);
           
           var beginning = 0,
-            end = lines[i].getTotalLength(),
-            target = null;
-
+          end = lines[i].getTotalLength(),
+          target = null;
+          
           while (true) {
             target = Math.floor((beginning + end) / 2);
-            // console.log(lines[i])
             pos = lines[i].getPointAtLength(target);
             if ((target === end || target === beginning) && pos.x !== mouse[0]) {
               break;
