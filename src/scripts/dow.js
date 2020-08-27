@@ -11,7 +11,7 @@ var valueline0 = d3.line()
   .x(function (d) { return x(d.date); })
   .y(function (d) { return y(d.close); });
 
-var chart1 = d3.select(".dow-chart-container").append("svg")
+var chart1 = d3.select("#dow-chart-container").append("svg")
   .attr("width", dowWidth + dowMargin.left + dowMargin.right)
   .attr("height", dowHeight + dowMargin.top + dowMargin.bottom)
   .append("g")
