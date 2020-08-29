@@ -1,4 +1,4 @@
-# Data Viz
+# Data Viz 
 
 ## Background and Overview
  Data-vis (name tbd) is a data visualization app that compares wealth statistics to stock market analytics.
