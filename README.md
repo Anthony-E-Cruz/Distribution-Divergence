@@ -1,7 +1,7 @@
 # Distribution Divergence 
 
 ## Background and Overview
- Data-vis (name tbd) is a data visualization app that compares wealth statistics to stock market analytics.
+ Distribution Divergence is a data visualization app that compares wealth statistics to stock market analytics.
  
 ## Functionality and MVPs
  Users will see a modal with a welcome message and instructions  
